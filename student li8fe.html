@@ -1,0 +1,398 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentLife BU - Integrated Campus Portal</title>
+    <style>
+        /* Modern Corporate & Clean Campus Theme */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        /* Top Header Brand */
+        header {
+            background-color: #0f172a; /* Deep elegant dark blue/slate */
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem 1rem 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.6rem;
+            font-weight: 800;
+        }
+
+        header p {
+            margin: 6px 0 15px 0;
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        /* Navigation Bar - Crucial for your defense! */
+        nav {
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: #94a3b8;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            color: white;
+            background-color: #334155;
+        }
+
+        /* Highlight Active Tab */
+        nav a.active {
+            color: #38bdf8;
+            border-bottom: 4px solid #38bdf8;
+            background-color: #334155;
+        }
+
+        /* Section Controller Layout */
+        .app-section {
+            display: none; /* Hidden by default, toggled via JavaScript */
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Make Home Section Visible on first load */
+        #home {
+            display: block;
+        }
+
+        /* Card Designs */
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        /* Grid system for listing items nicely */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-container { grid-template-columns: 1fr; }
+        }
+
+        .list-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .list-item h3 {
+            margin: 0 0 5px 0;
+            color: #1e40af;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #15803d;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* Forms, inputs and buttons layout styling */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #f8fafc;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        button:hover { background-color: #1d4ed8; }
+
+        /* Specific feature elements */
+        .display-box {
+            background: #f0f9ff;
+            border: 2px dashed #bae6fd;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #0369a1;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>StudentLife BU ✨</h1>
+        <p>The Ultimate All-in-One Digital Hub for Babcock University Students</p>
+    </header>
+
+    <nav>
+        <a id="nav-home" class="active" onclick="showSection('home')">🏠 Home</a>
+        <a id="nav-fun" onclick="showSection('fun')">🎉 Social & Fun</a>
+        <a id="nav-eco" onclick="showSection('eco')">🌱 Eco-Friendly</a>
+        <a id="nav-mental" onclick="showSection('mental')">🧠 Mental Health</a>
+        <a id="nav-access" onclick="showSection('access')">♿ Accessibility</a>
+    </nav>
+
+    <div id="home" class="app-section">
+        <div class="card" style="text-align: center;">
+            <h2>Welcome to Your Campus Ecosystem</h2>
+            <p><strong>StudentLife BU</strong> is designed to balance the physical, emotional, spiritual, and social requirements of university living.</p>
+            <p style="color: #64748b;">Use the navigation system above to seamlessly switch between campus activities, sustainability footprint computations, anonymous peer mental care, and structural disability access routes.</p>
+        </div>
+    </div>
+
+    <div id="fun" class="app-section">
+        <div class="card">
+            <h2>Campus Activities & Hangouts</h2>
+            <p style="color: #64748b; margin-top:-10px;">Explore popular recreational pastimes around Babcock along with their accurate student costs.</p>
+            
+            <div class="grid-container">
+                <div class="list-item">
+                    <h3>Babcock Guest House</h3>
+                    <p>Hang out with friends or relax. A plate of rice here is around ₦6,000.</p>
+                    <span class="price-tag">Budget: ₦6,000 - ₦7,000</span>
+                </div>
+                <div class="list-item">
+                    <h3>Swimming at Guest House</h3>
+                    <p>Cool off from hot lectures in the afternoon or weekend pool hours.</p>
+                    <span class="price-tag">Price: ₦1,500 - ₦2,000</span>
+                </div>
+                <div class="list-item">
+                    <h3>The Game House / Hub</h3>
+                    <p>Play video games, snooker, and challenge your friends to matches.</p>
+                    <span class="price-tag">Price: ₦500 per session</span>
+                </div>
+                <div class="list-item">
+                    <h3>The Campus Gym</h3>
+                    <p>Stay fit and work out between or after your daily lecture hours.</p>
+                    <span class="price-tag">Price: ₦1,500 - ₦2,500</span>
+                </div>
+                <div class="list-item">
+                    <h3>Babcock Cafeterias (Booster Runs)</h3>
+                    <p>Grab your regular meals or extra snacks during school dining periods.</p>
+                    <span class="price-tag">Budget: ₦1,500 - ₦5,000</span>
+                </div>
+                <div class="list-item">
+                    <h3>Night Walks</h3>
+                    <p>Enjoy peaceful walking and refreshing evening air around school paths.</p>
+                    <span class="price-tag">Cost: 100% Free</span>
+                </div>
+                <div class="list-item">
+                    <h3>Corporate Worship</h3>
+                    <p>Attend spiritual sessions with friends at the Amphitheatre or Chapel.</p>
+                    <p><small>🗓️ Wed & Fri (Evening) | Sat (Morning & Evening)</small></p>
+                    <span class="price-tag">Cost: Free / Spiritual Growth</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="eco" class="app-section">
+        <div class="card">
+            <h2>Campus Eco-Footprint Calculator</h2>
+            <div class="form-group">
+                <label>How did you get to class today?</label>
+                <select id="transport">
+                    <option value="0">Walked / Cycled (Eco-Friendly)</option>
+                    <option value="5">Public Shuttle Bus</option>
+                    <option value="15">Drove a personal vehicle</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Single-use plastic bottles bought today:</label>
+                <select id="bottles">
+                    <option value="0">None (Used a reusable flask)</option>
+                    <option value="5">1 to 2 bottles</option>
+                    <option value="12">3 or more bottles</option>
+                </select>
+            </div>
+            <button onclick="calculateEcoScore()">Calculate My Daily Impact</button>
+
+            <div id="ecoResult" style="margin-top: 20px; display: none; text-align: center; background: #f0fdf4; padding: 15px; border-radius: 8px;">
+                <h4>Your Impact Score: <span id="scoreValue">0</span></h4>
+                <p id="ratingText" style="font-weight: bold;"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="mental" class="app-section">
+        <div class="card">
+            <h2>KindnessDrop Compliment Box</h2>
+            <div class="display-box" id="complimentDisplay">
+                "Click the button below to fetch a message of encouragement from a fellow student!"
+            </div>
+            <button style="background-color: #f43f5e;" onclick="drawMessage()">✨ Draw a Smile</button>
+        </div>
+        <div class="card">
+            <h2>Drop a Note of Encouragement</h2>
+            <div class="form-group">
+                <textarea id="userNote" placeholder="Type a supportive word for someone facing exams or feeling overwhelmed..."></textarea>
+            </div>
+            <button style="background-color: #0ea5e9;" onclick="dropMessage()">Drop Note Anonymously</button>
+        </div>
+    </div>
+
+    <div id="access" class="app-section">
+        <div class="card">
+            <h2>Babcock Campus Accessibility Finder</h2>
+            <div class="form-group">
+                <label>Select Destination Building:</label>
+                <select id="buildingSelect" onchange="updateAccessInfo()">
+                    <option value="none">-- Choose a Location --</option>
+                    <option value="library">Babcock Central Library</option>
+                    <option value="bbs">Babcock Business School (BBS)</option>
+                    <option value="amphitheatre">The Amphitheatre</option>
+                </select>
+            </div>
+            <div id="accessInfo" style="display: none; background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 5px solid #2563eb;">
+                <h4 id="buildName" style="margin: 0 0 10px 0;"></h4>
+                <p><strong>Ramp Location:</strong> <span id="rampLoc"></span></p>
+                <p><strong>Elevator Status:</strong> <span id="elevStatus"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. NAVIGATION CONTROL: Hides sections and activates requested views
+        function showSection(sectionId) {
+            // Select all layout blocks with class 'app-section' and hide them
+            var sections = document.getElementsByClassName("app-section");
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = "none";
+            }
+            
+            // Show the target section
+            document.getElementById(sectionId).style.display = "block";
+
+            // Manage nav menu visual highlights
+            var navLinks = document.querySelectorAll("nav a");
+            navLinks.forEach(link => link.classList.remove("active"));
+            document.getElementById("nav-" + sectionId).classList.add("active");
+        }
+
+        // 2. ECO CALCULATOR LOGIC
+        function calculateEcoScore() {
+            var trans = parseInt(document.getElementById("transport").value);
+            var bot = parseInt(document.getElementById("bottles").value);
+            var total = trans + bot;
+
+            document.getElementById("scoreValue").innerText = total + " pts";
+            var rating = document.getElementById("ratingText");
+
+            if (total === 0) {
+                rating.innerText = "🍃 Flawless Eco-Hero Status!";
+                rating.style.color = "#16a34a";
+            } else if (total <= 10) {
+                rating.innerText = "☘️ Good Job! Low Impact.";
+                rating.style.color = "#15803d";
+            } else {
+                rating.innerText = "⚠️ High Impact. Try reducing plastic use tomorrow!";
+                rating.style.color = "#b91c1c";
+            }
+            document.getElementById("ecoResult").style.display = "block";
+        }
+
+        // 3. MENTAL HEALTH TEXT MANAGEMENT ARRAY
+        var kindnessBox = [
+            "You didn't come this far at Babcock just to give up now. You've got this exam covered!",
+            "Take a deep breath. Your scores do not define your worth as a human being.",
+            "Shout out to everyone balancing heavy credit units and keeping a smile. You're amazing!"
+        ];
+
+        function drawMessage() {
+            var index = Math.floor(Math.random() * kindnessBox.length);
+            document.getElementById("complimentDisplay").innerText = `"${kindnessBox[index]}"`;
+        }
+
+        function dropMessage() {
+            var txt = document.getElementById("userNote").value.trim();
+            if(txt === "") { alert("Please type a message first!"); return; }
+            kindnessBox.push(txt);
+            document.getElementById("userNote").value = "";
+            alert("Your anonymous note has been mixed into the box!");
+        }
+
+        // 4. ACCESSIBILITY STATIC MAPPING OBJECT
+        var campusMap = {
+            library: { name: "Babcock Central Library", ramp: "Right side of the main entrance stairs.", elevator: "Operational (Back wing)" },
+            bbs: { name: "Babcock Business School", ramp: "Side pathway leading directly to ground-floor halls.", elevator: "Under Maintenance" },
+            amphitheatre: { name: "The Amphitheatre", ramp: "Zero-step flat entrance built into the outer boundary security gates.", elevator: "Not Applicable" }
+        };
+
+        function updateAccessInfo() {
+            var key = document.getElementById("buildingSelect").value;
+            if(key === "none") { document.getElementById("accessInfo").style.display = "none"; return; }
+
+            var targetData = campusMap[key];
+            document.getElementById("buildName").innerText = targetData.name;
+            document.getElementById("rampLoc").innerText = targetData.ramp;
+            document.getElementById("elevStatus").innerText = targetData.elevator;
+            document.getElementById("accessInfo").style.display = "block";
+        }
+    </script>
+</body>
+</html>
